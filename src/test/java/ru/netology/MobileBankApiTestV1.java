@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.core.Is.is;
 
 public class MobileBankApiTestV1 {
     @Test
-   public void shouldReturnDemoAccounts() {
+    public void shouldReturnDemoAccounts() {
         // Given - When - Then
         // Предусловия
         given()
@@ -18,6 +19,7 @@ public class MobileBankApiTestV1 {
                 // Проверки
                 .then()
                 .statusCode(200)
-               .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
+                .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
+                ;
     }
 }
